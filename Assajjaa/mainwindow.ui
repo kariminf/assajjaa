@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="srch">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>450</x>
       <y>20</y>
       <width>80</width>
       <height>23</height>
@@ -27,7 +27,7 @@
      <string>Search</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="qafia">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -57,22 +57,27 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="wazn">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>100</x>
       <y>20</y>
-      <width>79</width>
+      <width>141</width>
       <height>23</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
     <item>
      <property name="text">
       <string>متفاعل</string>
      </property>
     </item>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QListWidget" name="res">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -92,6 +97,13 @@
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -102,6 +114,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
