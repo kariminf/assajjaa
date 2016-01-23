@@ -10,6 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Assajjaa
 TEMPLATE = app
+VERSION = 0.0.1
 
 
 SOURCES += main.cpp\
@@ -18,3 +19,7 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+TRANSLATIONS    +=  Media/i18n/ar.ts\
+                    Media/i18n/ja.ts\
+                    Media/i18n/fr.ts
