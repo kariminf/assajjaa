@@ -45,7 +45,7 @@ void Requestor::addWazn(QString wazn)
     }
 
     //request += "pattern = '" + Transformer::BuckwalterTrans(wazn) + "'\n";
-    request += "instr(pattern, '" + Transformer::BuckwalterTrans(wazn) + "')>0\n";
+    request += "instr(pattern, '+" + Transformer::BuckwalterTrans(wazn) + "+')>0\n";
     more = true;
 }
 
