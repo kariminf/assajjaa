@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     rq = new Requestor();
     rq->connect();
+    initiateFields();
 }
 
 MainWindow::~MainWindow()
@@ -43,4 +44,33 @@ void MainWindow::on_srch_clicked()
 void MainWindow::on_actionExit_triggered()
 {
     qApp->quit();
+}
+
+void MainWindow::initiateFields()
+{
+    QFile wazns (QString(LingPath) + "awzan.txt");
+    if (wazns.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream txtStream(&wazns);
+        while(! txtStream.atEnd()){
+            QString wazn = txtStream.readLine().trimmed();
+
+            if (wazn.length() > 0)
+                ui->wazn->addItem(wazn);
+        }
+
+        qDebug()<< "File wazns found";
+    }
+
+    QFile qawafi (QString(LingPath) + "qawafi.txt");
+    if (qawafi.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream txtStream(&qawafi);
+        while(! txtStream.atEnd()){
+            QString qafiya = txtStream.readLine().trimmed();
+
+            if (qafiya.length() > 0)
+                ui->qafia->addItem(qafiya);
+        }
+
+        //qDebug()<< "File wazns found";
+    }
 }

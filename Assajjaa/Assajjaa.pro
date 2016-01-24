@@ -13,6 +13,7 @@ TEMPLATE = app
 VERSION = 0.0.1
 
 DEFINES += arbDbPath=\\\"./DB/arwords.db\\\" #/usr/share/assajjaa/DB
+DEFINES += LingPath=\\\"./Ling/\\\" #/usr/share/assajjaa/DB
 
 
 SOURCES += main.cpp\
@@ -42,4 +43,7 @@ system(mkdir ../bin/release/i18n)
 system(mv Media/i18n/*.qm ../bin/release/i18n)
 system(mkdir ../bin/release/DB)
 system(cp Media/DB/* ../bin/release/DB)
+
+system(mkdir ../bin/release/Ling)
+system(cp Media/Ling/* ../bin/release/Ling)
 }

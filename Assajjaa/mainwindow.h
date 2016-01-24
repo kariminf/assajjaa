@@ -5,7 +5,6 @@
 #include <QDebug>
 
 #include "Data/requestor.h"
-#include "Data/transformer.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +26,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Requestor *rq;
+
+    void initiateFields();
 };
 
 #endif // MAINWINDOW_H

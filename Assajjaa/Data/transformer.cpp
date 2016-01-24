@@ -7,15 +7,17 @@ Transformer::Transformer()
 QString Transformer::BuckwalterTrans(QString arbStr)
 {
     QString res = "";
-    if (arbStr.size() < trans.size()){
-        for(QChar ch : arbStr) {
+    if (arbStr.length() < trans.size()){
+        for(int i=0;i<arbStr.length();i++) {
+            QChar ch = arbStr[i];
             res += trans.value(ch);
         }
 
     } else{
         res = arbStr;
-        for(Qchar ch : trans.keys()){
-
+        QList<QChar> keys = trans.keys();
+        for(int i=0; i<keys.size(); i++){
+            QChar ch = keys[i];
             res = res.replace(ch, trans.value(ch));
         }
 
@@ -27,7 +29,9 @@ QString Transformer::BuckwalterTrans(QString arbStr)
 QString Transformer::BuckwalterUnTrans(QString transStr)
 {
     QString res = transStr;
-    for(Qchar ch : trans.keys()){
+    QList<QChar> keys = trans.keys();
+    for(int i=0; i<keys.size(); i++){
+        QChar ch = keys[i];
         res = res.replace(trans.value(ch), ch);
     }
     return res;

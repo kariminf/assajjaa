@@ -5,6 +5,8 @@
 #include <QtSql/QtSql>
 #include <QDebug>
 
+#include "Data/transformer.h"
+
 class Requestor
 {
 public:

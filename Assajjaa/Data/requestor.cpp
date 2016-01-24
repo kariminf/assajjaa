@@ -44,7 +44,8 @@ void Requestor::addWazn(QString wazn)
         request += "WHERE ";
     }
 
-    request += "pattern = '" + wazn + "'\n";
+    //request += "pattern = '" + Transformer::BuckwalterTrans(wazn) + "'\n";
+    request += "instr(pattern, '" + Transformer::BuckwalterTrans(wazn) + "')>0\n";
     more = true;
 }
 

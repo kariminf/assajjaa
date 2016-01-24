@@ -30,61 +30,65 @@
    <widget class="QComboBox" name="qafia">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>278</x>
       <y>20</y>
-      <width>79</width>
+      <width>121</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
     </property>
     <item>
      <property name="text">
       <string>None</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>ال</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>ام</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>يل</string>
      </property>
     </item>
    </widget>
    <widget class="QComboBox" name="wazn">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>40</x>
       <y>20</y>
-      <width>141</width>
+      <width>191</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
     </property>
     <item>
      <property name="text">
       <string>None</string>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>متفاعل</string>
-     </property>
-    </item>
    </widget>
    <widget class="QListWidget" name="res">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>40</x>
       <y>80</y>
-      <width>431</width>
+      <width>491</width>
       <height>141</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
     </property>
    </widget>
   </widget>
