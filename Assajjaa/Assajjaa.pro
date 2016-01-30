@@ -17,15 +17,15 @@ DEFINES += LingPath=\\\"./Ling/\\\" #/usr/share/assajjaa/DB
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+        Ui/mainwindow.cpp \
     Data/requestor.cpp \
     Data/transformer.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += Ui/mainwindow.h \
     Data/requestor.h \
     Data/transformer.h
 
-FORMS    += mainwindow.ui
+FORMS    += Ui/mainwindow.ui
 
 TRANSLATIONS    +=  Media/i18n/ar.ts\
                     Media/i18n/ja.ts\

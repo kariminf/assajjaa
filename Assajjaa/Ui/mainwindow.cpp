@@ -51,7 +51,7 @@ void MainWindow::initiateFields()
     QFile wazns (QString(LingPath) + "awzan.txt");
     if (wazns.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream txtStream(&wazns);
-        QTextStream.setCodec("UTF-8");
+        txtStream.setCodec("UTF-8");
         while(! txtStream.atEnd()){
             QString wazn = txtStream.readLine().trimmed();
 
@@ -65,7 +65,7 @@ void MainWindow::initiateFields()
     QFile qawafi (QString(LingPath) + "qawafi.txt");
     if (qawafi.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream txtStream(&qawafi);
-        QTextStream.setCodec("UTF-8");
+        txtStream.setCodec("UTF-8");
         while(! txtStream.atEnd()){
             QString qafiya = txtStream.readLine().trimmed();
 
