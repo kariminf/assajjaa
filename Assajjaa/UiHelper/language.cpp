@@ -74,7 +74,7 @@ bool Language::mainWindowDirection(QMainWindow * w)
  */
 QString Language::getConfigLanguage()
 {
-    QSettings settings;//("DzCoding", "JapKatsuyou")
+    QSettings settings;
 
     return settings.value("langacro", "??").toString();
 }
@@ -98,7 +98,7 @@ QString Language::getCurrentLanguage()
  */
 void Language::setConfigLanguage(QString langID)
 {
-    QSettings settings;//("DzCoding", "JapKatsuyou")
+    QSettings settings;
     settings.setValue("langacro", langID);
 
     //currentLanguageID = langID;
@@ -129,7 +129,7 @@ QHash<QString, QString> Language::getLanguagesInfo()
 void Language::loadTranslations()
 {
     QDir langDefaultDir (QString(transPath));
-    QStringList languageINIFiles = langDefaultDir.entryList(QStringList("jpconj_*.ini"));
+    QStringList languageINIFiles = langDefaultDir.entryList(QStringList("*.ini"));
 
     languagesInfo.insert("en", "English");
     addTranslation("en", ""); // add English language to tanslators
@@ -137,16 +137,15 @@ void Language::loadTranslations()
     foreach (QString langINIFile, languageINIFiles){
         QString langFileName = langINIFile;
         langFileName.chop(4);
-
         QFile langFile (QString(transPath) + langFileName +".qm");
+        qDebug() << langFile.fileName();
         if (langFile.exists()){
-            QString languageId = langFileName.mid(7);
             QSettings langSettings(QString(transPath) + langINIFile, QSettings::IniFormat);
             langSettings.setIniCodec("UTF-8");
             QString languageName = langSettings.value("name").toString();
-            //qDebug() << langFile.fileName();
-            languagesInfo.insert(languageId, languageName);
-            addTranslation(languageId, QString(transPath)); // add language to tanslators
+
+            languagesInfo.insert(langFileName, languageName);
+            addTranslation(langFileName, QString(transPath)); // add language to tanslators
         }
     }
     setLanguage();
@@ -166,7 +165,7 @@ void Language::loadTranslations()
  */
 void Language::addTranslation(QString langId, QString dir)
 {
-    QString jpconjTransLocation = dir + "jpconj_" + langId + ".qm";
+    QString jpconjTransLocation = dir + langId + ".qm";
     QTranslator* jpconjTranslator = new QTranslator();
 
     /*if (jpconjTranslator->load(jpconjTransLocation))

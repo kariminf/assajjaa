@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Assajjaa
 TEMPLATE = app
-VERSION = 0.1.0 #test version
+VERSION = 0.0.2 #dev version
 
 DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += arbDbPath=\\\"./DB/arwords.db\\\" #/usr/share/assajjaa/DB
@@ -69,6 +69,8 @@ RESOURCES += \
 #Used when packaging only
 #DESTDIR = ../bin/release
 
+win32:RC_FILE = jpconj.rc
+
 unix {
 system(mkdir ../bin)
 system(mkdir ../bin/release)
@@ -76,6 +78,7 @@ system(mkdir ../bin/release)
 system(cd Media/i18n; lrelease *.ts)
 system(mkdir ../bin/release/i18n)
 system(mv Media/i18n/*.qm ../bin/release/i18n)
+system(cp Media/i18n/*.ini ../bin/release/i18n)
 system(mkdir ../bin/release/DB)
 system(cp Media/DB/* ../bin/release/DB)
 
