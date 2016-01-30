@@ -62,7 +62,7 @@ TRANSLATIONS    +=  Media/i18n/ar.ts\
                     Media/i18n/fr.ts
 
 RESOURCES += \
-#    Media/about.qrc \
+    Media/about.qrc \
     Media/icons.qrc \
 #    Media/output.qrc
 
