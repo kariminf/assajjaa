@@ -12,20 +12,50 @@ TARGET = Assajjaa
 TEMPLATE = app
 VERSION = 0.1.0 #test version
 
+DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += arbDbPath=\\\"./DB/arwords.db\\\" #/usr/share/assajjaa/DB
 DEFINES += LingPath=\\\"./Ling/\\\" #/usr/share/assajjaa/DB
+DEFINES += transPath=\\\"./i18n/\\\" #/usr/share/assajjaa/DB
 
 
-SOURCES += main.cpp\
-        Ui/mainwindow.cpp \
-    Data/requestor.cpp \
-    Data/transformer.cpp
+SOURCES +=  main.cpp\
+            Ui/mainwindow.cpp \
+            Ui/about.cpp \
+            Ui/preference.cpp \
+            Ui/help.cpp \
+            Ui/helpviewer.cpp \
+            Ui/srchframe.cpp \
+            UiHelper/language.cpp \
+            UiHelper/export.cpp \
+            UiHelper/tray.cpp \
+            UiHelper/style.cpp \
+            UiHelper/funcframe.cpp \
+            Data/requestor.cpp \
+            Data/transformer.cpp
 
-HEADERS  += Ui/mainwindow.h \
-    Data/requestor.h \
-    Data/transformer.h
 
-FORMS    += Ui/mainwindow.ui
+
+HEADERS  += UiHelper/msg.h \
+            Ui/mainwindow.h \
+            Ui/mainwindow.h \
+            Ui/about.h \
+            Ui/preference.h \
+            Ui/help.h \
+            Ui/helpviewer.h \
+            Ui/srchframe.h \
+            UiHelper/language.h \
+            UiHelper/export.h \
+            UiHelper/tray.h \
+            UiHelper/style.h \
+            UiHelper/funcframe.h \
+            Data/requestor.h \
+            Data/transformer.h
+
+FORMS    += Ui/mainwindow.ui \
+            Ui/about.ui \
+            Ui/preference.ui \
+            Ui/help.ui \
+            Ui/srchframe.ui
 
 TRANSLATIONS    +=  Media/i18n/ar.ts\
                     Media/i18n/ja.ts\

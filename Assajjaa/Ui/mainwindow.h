@@ -26,10 +26,10 @@
 #define MAINWINDOW_H
 
 #include "about.h"
-#include "conjframe.h"
+#include "srchframe.h"
 #include "UiHelper/export.h"
-#include "jpconjhelp.h"
-#include "UiHelper/jpconjtray.h"
+#include "help.h"
+#include "UiHelper/tray.h"
 #include "UiHelper/language.h"
 #include "UiHelper/msg.h"
 #include "preference.h"
@@ -70,7 +70,6 @@ private:
     FuncFrame *workfrm;
     bool hasContent;
     bool languageChanged;
-    EdictType verbType;
     QString currentVerb;
     JpconjTray* trayIconSys;
     QString stylesheet;

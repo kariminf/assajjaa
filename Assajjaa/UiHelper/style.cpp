@@ -32,6 +32,7 @@ void Style::emitSignal(QString styleID)
 
 void Style::loadStyles()
 {
+    /*
     styles.clear();
 
     QDir styleDefaultDir (QString(dataFolder) + "styles/");
@@ -54,6 +55,7 @@ void Style::loadStyles()
     }
 
     setStyle();
+    */
 }
 
 /*!

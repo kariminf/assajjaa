@@ -128,7 +128,7 @@ QHash<QString, QString> Language::getLanguagesInfo()
  */
 void Language::loadTranslations()
 {
-    QDir langDefaultDir (QString(dataFolder) + "i18n/");
+    QDir langDefaultDir (QString(transPath));
     QStringList languageINIFiles = langDefaultDir.entryList(QStringList("jpconj_*.ini"));
 
     languagesInfo.insert("en", "English");
@@ -138,15 +138,15 @@ void Language::loadTranslations()
         QString langFileName = langINIFile;
         langFileName.chop(4);
 
-        QFile langFile (QString(dataFolder) + "i18n/" + langFileName +".qm");
+        QFile langFile (QString(transPath) + langFileName +".qm");
         if (langFile.exists()){
             QString languageId = langFileName.mid(7);
-            QSettings langSettings(QString(dataFolder) + "i18n/" + langINIFile, QSettings::IniFormat);
+            QSettings langSettings(QString(transPath) + langINIFile, QSettings::IniFormat);
             langSettings.setIniCodec("UTF-8");
             QString languageName = langSettings.value("name").toString();
             //qDebug() << langFile.fileName();
             languagesInfo.insert(languageId, languageName);
-            addTranslation(languageId, QString(dataFolder) + "i18n/"); // add language to tanslators
+            addTranslation(languageId, QString(transPath)); // add language to tanslators
         }
     }
     setLanguage();

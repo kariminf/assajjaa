@@ -20,8 +20,10 @@ void FuncFrame::initialize()
  */
 void FuncFrame::setCSS(QWebView * webView, QString nameCSS)
 {
+    /*
     QString cssfile = "file:" + QDir(QString(dataFolder)).absolutePath() + "/styles/" + nameCSS;
     //qDebug()<< "css: " << cssfile;
     QWebSettings * settings = webView->settings();
     settings->setUserStyleSheetUrl(QUrl(cssfile));
+    */
 }

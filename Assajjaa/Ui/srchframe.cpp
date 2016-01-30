@@ -1,26 +1,27 @@
-#include "conjframe.h"
-#include "ui_conjframe.h"
+#include "srchframe.h"
+#include "ui_srchframe.h"
 
-ConjFrame::ConjFrame(QWidget *parent) :
+SrchFrame::SrchFrame(QWidget *parent) :
     FuncFrame(parent),
-    ui(new Ui::ConjFrame)
+    ui(new Ui::SrchFrame)
 {
     initialize();
 }
 
-ConjFrame::~ConjFrame()
+SrchFrame::~SrchFrame()
 {
     delete ui;
 }
 
 
-void ConjFrame::initUI()
+void SrchFrame::initUI()
 {
     ui->setupUi(this);
     QPalette palette;
 
     //hasContent = false;
     palette.setBrush(QPalette::Base, Qt::transparent);
+    /*
     ui->basicConj->page()->setPalette(palette);
     ui->basicConj->setAttribute(Qt::WA_OpaquePaintEvent, false);
 
@@ -29,17 +30,17 @@ void ConjFrame::initUI()
 
     ui->complexConj->page()->setPalette(palette);
     ui->complexConj->setAttribute(Qt::WA_OpaquePaintEvent, false);
-
+*/
     changeStyle(Style::getCurrentStyle());
 }
 
 
-void ConjFrame::initExporter()
+void SrchFrame::initExporter()
 {
 
 }
 
-void ConjFrame::initExporter(Export exporter)
+void SrchFrame::initExporter(Export exporter)
 {/*
     exporter.setRTL(rtl);
     exporter.addContent("<p><h1>" + currentVerb + "</h1></p><hr>\n");
@@ -76,9 +77,10 @@ void ConjFrame::initExporter(Export exporter)
  * - ConjFrame::complexConjugation To show the complex conjugation forms.
  */
 
-void ConjFrame::doConj()
+void SrchFrame::doSearch()
 {
 
+    /*
     QString verb = ui->inputConjVerb->text();
 
     if (verb == currentVerb)
@@ -113,6 +115,7 @@ void ConjFrame::doConj()
 
    // ui->actionExportResult->setEnabled(true);
     //ui->actionPrint->setEnabled(true);
+    */
 }
 
 
@@ -123,7 +126,8 @@ void ConjFrame::doConj()
  * \param verb The verb in dictionary form (u-form), eg. 食べる, 飲む, 行く, 来る, etc.
  * \param type The Edict2 type of the verb (See: VerbType::EdictType)
  */
-void ConjFrame::basicConjugation(QString verb, EdictType type)
+/*
+void SrchFrame::basicConjugation(QString verb, EdictType type)
 {
 
     if (!hasContent){
@@ -155,7 +159,7 @@ void ConjFrame::basicConjugation(QString verb, EdictType type)
     }
     //! [Doxygen: basicFormsMap example]
 
-}
+}*/
 
 
 
@@ -164,6 +168,7 @@ void ConjFrame::basicConjugation(QString verb, EdictType type)
  * \param verb The verb in dictionary form (u-form), eg. 食べる, 飲む, 行く, 来る, etc.
  * \param type The Edict2 type of the verb (See: VerbType::EdictType)
  */
+/*
 void ConjFrame::complexConjugation(QString verb, EdictType type)
 {
     if (!hasContent){
@@ -194,14 +199,14 @@ void ConjFrame::complexConjugation(QString verb, EdictType type)
 
     ui->complexConj->page()->mainFrame()->evaluateJavaScript(jsScript);
 
-}
+}*/
 
 /*!
  * \brief jpconjmain::readHtmlFile Reads an HTML file and return a QString
  * \param URL URL of the HTML file, we want to read.
  * \return A QString which is the content of this HTML file.
  */
-QString ConjFrame::readHtmlFile(QString URL)
+QString SrchFrame::readHtmlFile(QString URL)
 {
     QString result="<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" /><body>";
     QFile HtmlFile(URL);
@@ -218,7 +223,7 @@ QString ConjFrame::readHtmlFile(QString URL)
 
 
 
-void ConjFrame::refreshLanguage(bool rtl)
+void SrchFrame::refreshLanguage(bool rtl)
 {
 
     this->rtl = rtl;
@@ -228,7 +233,7 @@ void ConjFrame::refreshLanguage(bool rtl)
     if (!hasContent)
         return;
 
-    ui->verbType->setText(Msg::getVerbTypeDesc(verbType));
+    //ui->verbType->setText(Msg::getVerbTypeDesc(verbType));
 
     QString jsScript = "var body = document.getElementsByTagName('body')[0]; \n";
     QString dir = (rtl)?"rtl":"ltr";
@@ -241,14 +246,14 @@ void ConjFrame::refreshLanguage(bool rtl)
     //qDebug()<< jsScript;
 
     //Retranslate strings
-
+/*
     {//standard
         QWebElementCollection standardConjConst = ui->standardConj->page()->mainFrame()->findAllElements(".Const");
 
         for(int i = 0; i < standardConjConst.count(); i++){
             QWebElement element = standardConjConst.at(i);
             QString elementName = element.attribute("name", "");
-            element.setInnerXml(Msg::getTranslatedString(elementName));
+            //element.setInnerXml(Msg::getTranslatedString(elementName));
         }
     }
 
@@ -258,7 +263,7 @@ void ConjFrame::refreshLanguage(bool rtl)
         for(int i = 0; i < basicConjConst.count(); i++){
             QWebElement element = basicConjConst.at(i);
             QString elementName = element.attribute("name", "");
-            element.setInnerXml(Msg::getTranslatedString(elementName));
+            //element.setInnerXml(Msg::getTranslatedString(elementName));
         }
 
         QMap<KForm, QString> basicForms = Msg::basicFormsMap();
@@ -315,14 +320,14 @@ void ConjFrame::refreshLanguage(bool rtl)
     }
     //qDebug()<< jsScript;
     ui->complexConj->page()->mainFrame()->evaluateJavaScript(jsScript);
-
+*/
     //qDebug()<< "Strings translation";
 
 }
 
 
 
-void ConjFrame::zoom(signed char sign)
+void SrchFrame::zoom(signed char sign)
 {
     if (sign < 0){
         ui->standardConj->setTextSizeMultiplier(qMax(0.5, ui->standardConj->textSizeMultiplier() - 1.0 / 10.0));
@@ -346,7 +351,7 @@ void ConjFrame::zoom(signed char sign)
 }
 
 
-void ConjFrame::changeStyle(QString styleID)
+void SrchFrame::changeStyle(QString styleID)
 {
     stylesheet = styleID + ".css";
     //qDebug() << "style changed" << styleID;
@@ -355,13 +360,13 @@ void ConjFrame::changeStyle(QString styleID)
     setCSS(ui->complexConj, stylesheet);
 }
 
-void ConjFrame::on_conjugateButton_clicked()
+void SrchFrame::on_conjugateButton_clicked()
 {
-    doConj();
+    doSearch();
 }
 
 
-void ConjFrame::on_inputConjVerb_returnPressed()
+void SrchFrame::on_inputConjVerb_returnPressed()
 {
-    doConj();
+    doSearch();
 }

@@ -1,4 +1,4 @@
-#include "jpconjtray.h"
+#include "tray.h"
 
 JpconjTray::JpconjTray(QMainWindow* parent):
     QSystemTrayIcon(parent)

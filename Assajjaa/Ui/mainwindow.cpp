@@ -67,11 +67,10 @@ MainWindow::~MainWindow()
 void MainWindow::doInit()
 {
 
-    workfrm = new ConjFrame(this);
+    workfrm = new SrchFrame(this);
     ui->formLayout->addWidget(workfrm);
     hasContent = false;
     languageChanged = true;
-    verbType = _v0;
     currentVerb = "";
 
     //qDebug()<< QString(VERSION);
@@ -239,9 +238,9 @@ void MainWindow::zoom(signed char sign)
  */
 void MainWindow::setCSS(QWebView * webView, QString nameCSS)
 {
-    QString cssfile = "file:" + QDir(QString(dataFolder)).absolutePath() + "/styles/" + nameCSS;
+    /*QString cssfile = "file:" + QDir(QString(dataFolder)).absolutePath() + "/styles/" + nameCSS;
     QWebSettings * settings = webView->settings();
-    settings->setUserStyleSheetUrl(QUrl(cssfile));
+    settings->setUserStyleSheetUrl(QUrl(cssfile));*/
 }
 
 
@@ -374,7 +373,7 @@ void MainWindow::on_actionContactUs_triggered()
     QDesktopServices::openUrl(QUrl("mailto:dzcoding@googlegroups.com"));
 }
 
-void jpconjmain::on_actionHomePage_triggered()
+void MainWindow::on_actionHomePage_triggered()
 {
     QDesktopServices::openUrl(QUrl("http://japkatsuyou.sourceforge.net"));
 }

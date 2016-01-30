@@ -1,5 +1,5 @@
-#include "jpconjhelp.h"
-#include "ui_jpconjhelp.h"
+#include "help.h"
+#include "ui_help.h"
 
 bool jpconjhelp::showed = false;
 
@@ -35,6 +35,7 @@ void jpconjhelp::on_actionClose_triggered()
 
 void jpconjhelp::Init()
 {
+    /*
     showed = true;
 
     QString helpFile = QString(dataFolder) + "help/" + Language::getCurrentLanguage().left(2) + ".qhc";
@@ -76,6 +77,7 @@ void jpconjhelp::Init()
 
        this->tabifyDockWidget(ui->contentsDock, ui->indexDock);
        ui->contentsDock->raise();
+       */
 }
 
 

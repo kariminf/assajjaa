@@ -82,6 +82,7 @@ static QString NO_USE_FUNC fileExists(bool title)
 /*! Gives a list of complex conjugation forms (See: CForm).\n
  * This list makes it easier to loop over the different complex conjugation forms.
  */
+/*
 static QMap<CForm, QString> NO_USE_FUNC complexFormsMap()
 {
     QMap<CForm, QString> resultMap;
@@ -99,13 +100,14 @@ static QMap<CForm, QString> NO_USE_FUNC complexFormsMap()
     resultMap.insert(_Potential, "potential");
 
     return resultMap;
-}
+}*/
 
 
 
 /*! Gives the verb complex form name in the current language.\n
  * For example, for _Present we get "present" in English
  */
+/*
 static QString NO_USE_FUNC getVerbFormName(CForm form)
 {
     switch (form){
@@ -140,13 +142,14 @@ static QString NO_USE_FUNC getVerbFormName(CForm form)
     }
 
     return "";
-}
+}*/
 
 
 
 /*! Gives the verb complex form description in the current language.\n
  * For example, for _Present we get "This is the present tense." in English
  */
+/*
 static QString NO_USE_FUNC getVerbFormDesc(CForm form)
 {
     switch (form){
@@ -181,13 +184,14 @@ static QString NO_USE_FUNC getVerbFormDesc(CForm form)
     }
 
     return "";
-}
+}*/
 
 
 
 /*! Gives the verb type description in the current language.\n
  * For example, for _v1 we get "Ichidan verb." in English
  */
+/*
 static QString NO_USE_FUNC getVerbTypeDesc(EdictType type)
 {
     switch (type){
@@ -251,13 +255,14 @@ static QString NO_USE_FUNC getVerbTypeDesc(EdictType type)
     }
 
     return "";
-}
+}*/
 
 
 
 /*! Gives the conjugation politness name in the current language.\n
  * For example, for _Plain we get "Plain" in English
  */
+/*
 static QString NO_USE_FUNC getVerbPolitenessName(Politeness polite)
 {
     switch (polite) {
@@ -270,13 +275,14 @@ static QString NO_USE_FUNC getVerbPolitenessName(Politeness polite)
     }
 
     return "";
-}
+}*/
 
 
 
 /*! Gives the conjugation politness description in the current language.\n
  * For example, for _Plain we get "Plain form of a sentence; it is used with friends." in English
  */
+/*
 static QString NO_USE_FUNC getVerbPolitenessDesc(Politeness polite)
 {
     switch (polite) {
@@ -289,13 +295,14 @@ static QString NO_USE_FUNC getVerbPolitenessDesc(Politeness polite)
     }
 
     return "";
-}
+}*/
 
 
 
 /*! Gives the conjugation polarity name in the current language.\n
  * For example, for _Negative we get "Negative" in English
  */
+/*
 static QString NO_USE_FUNC getVerbPolarityName(Polarity affirmative)
 {
     switch (affirmative) {
@@ -308,13 +315,14 @@ static QString NO_USE_FUNC getVerbPolarityName(Polarity affirmative)
     }
 
     return "";
-}
+}*/
 
 
 
 /*! Gives the conjugation polarity description in the current language. \n
  * For example, for _Negative we get "Form used in negative sentences." in English
  */
+/*
 static QString NO_USE_FUNC getVerbPolarityDesc(Polarity affirmative)
 {
     switch (affirmative) {
@@ -327,7 +335,7 @@ static QString NO_USE_FUNC getVerbPolarityDesc(Polarity affirmative)
     }
 
     return "";
-}
+}*/
 
 
 
@@ -342,6 +350,7 @@ static QString NO_USE_FUNC getVerbPolarityDesc(Polarity affirmative)
  * Example (Assuming basicConjHTML is a QString containing HTML content) \n
  * \snippet jpconjmain.cpp Doxygen: basicFormsMap example
  */
+/*
 static QMap<KForm, QString> NO_USE_FUNC basicFormsMap()
 {
     QMap<KForm, QString> resultMap;
@@ -355,13 +364,14 @@ static QMap<KForm, QString> NO_USE_FUNC basicFormsMap()
     resultMap.insert(_Imperative_e, "eImp");
 
     return resultMap;
-}
+}*/
 
 
 
 /*! Gives the replacement of HTML variables in Msg::verbStringsList in the current language
  * Giving its number in the QList afforded by this function.
  */
+/*
 static QString NO_USE_FUNC getTranslatedString(QString elementId)
 {
 
@@ -384,7 +394,7 @@ static QString NO_USE_FUNC getTranslatedString(QString elementId)
         return qApp->translate("conjugationStrings", "Basic Conjugation");
 
     return "";
-}
+}*/
 
 
 
@@ -407,6 +417,7 @@ static QString NO_USE_FUNC getTranslatedString(QString elementId)
 /*! Gives the verb basic form name in the current language.\n
  * For example, for _Imperfective_a we get "Imperfective (general)" in English
  */
+/*
 static QString NO_USE_FUNC getBasicFormName(KForm form)
 {
     switch (form){
@@ -439,7 +450,7 @@ static QString NO_USE_FUNC getBasicFormName(KForm form)
     }
 
     return "";
-}
+}*/
 
 }
 

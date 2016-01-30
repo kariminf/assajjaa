@@ -1,5 +1,5 @@
-#ifndef CONJFRAME_H
-#define CONJFRAME_H
+#ifndef SRCHFRAME_H
+#define SRCHFRAME_H
 
 #include "UiHelper/export.h"
 #include "UiHelper/msg.h"
@@ -10,19 +10,19 @@
 
 
 namespace Ui {
-class ConjFrame;
+class SrchFrame;
 }
 
-class ConjFrame : public FuncFrame
+class SrchFrame : public FuncFrame
 {
     Q_OBJECT
     
 public:
-    explicit ConjFrame(QWidget *parent = 0);
-    ~ConjFrame();
+    explicit SrchFrame(QWidget *parent = 0);
+    ~SrchFrame();
 
     void initExporter(Export exporter);
-    void doConj();
+    void doSearch();
     virtual void zoom(signed char sign);
     virtual void refreshLanguage(bool rtl);
     virtual void changeStyle(QString styleID);
@@ -37,17 +37,16 @@ private slots:
     void on_inputConjVerb_returnPressed();
 
 private:
-    Ui::ConjFrame *ui;
+    Ui::SrchFrame *ui;
 
 
     //bool languageChanged;
-    EdictType verbType;
     QString currentVerb;
 
-    void basicConjugation(QString verb, EdictType type);
-    void complexConjugation(QString verb, EdictType type);
+    //void basicConjugation(QString verb, EdictType type);
+    //void complexConjugation(QString verb, EdictType type);
 
     QString readHtmlFile(QString URL);
 };
 
-#endif // CONJFRAME_H
+#endif // SRCHFRAME_H
