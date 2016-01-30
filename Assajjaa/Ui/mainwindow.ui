@@ -1,130 +1,376 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>jpconjmain</class>
+ <widget class="QMainWindow" name="jpconjmain">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>632</width>
-    <height>313</height>
+    <width>634</width>
+    <height>426</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>DejaVu Sans</family>
+    <pointsize>9</pointsize>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>JapKatsuyou: Japanese Verb Conjugation</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../Media/icons.qrc">
+    <normaloff>:/img/icon.png</normaloff>:/img/icon.png</iconset>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="srch">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>20</y>
-      <width>80</width>
-      <height>23</height>
-     </rect>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="leftMargin">
+     <number>1</number>
     </property>
-    <property name="text">
-     <string>Search</string>
+    <property name="topMargin">
+     <number>1</number>
     </property>
-   </widget>
-   <widget class="QComboBox" name="qafia">
-    <property name="geometry">
-     <rect>
-      <x>278</x>
-      <y>20</y>
-      <width>121</width>
-      <height>23</height>
-     </rect>
+    <property name="rightMargin">
+     <number>1</number>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::RightToLeft</enum>
+    <property name="bottomMargin">
+     <number>1</number>
     </property>
     <item>
-     <property name="text">
-      <string>None</string>
-     </property>
+     <layout class="QFormLayout" name="formLayout"/>
     </item>
-   </widget>
-   <widget class="QComboBox" name="wazn">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>191</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::RightToLeft</enum>
-    </property>
-    <item>
-     <property name="text">
-      <string>None</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QListWidget" name="res">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>80</y>
-      <width>491</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::RightToLeft</enum>
-    </property>
-   </widget>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>632</width>
+     <width>634</width>
      <height>20</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menu_File">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
-    <addaction name="actionExit"/>
+    <addaction name="actionExportResult"/>
+    <addaction name="actionPrint"/>
+    <addaction name="separator"/>
+    <addaction name="actionHide"/>
+    <addaction name="actionClose"/>
    </widget>
-   <addaction name="menuFile"/>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionHelpContent"/>
+    <addaction name="separator"/>
+    <addaction name="actionContactUs"/>
+    <addaction name="actionHomePage"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <widget class="QMenu" name="menuZoom">
+     <property name="title">
+      <string>Zoom</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../Media/icons.qrc">
+       <normaloff>:/img/zoom.png</normaloff>:/img/zoom.png</iconset>
+     </property>
+     <addaction name="actionZoomIn"/>
+     <addaction name="actionZoomOut"/>
+     <addaction name="actionNormalSize"/>
+    </widget>
+    <addaction name="menuZoom"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menu_Edit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionPreference"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_View"/>
+   <addaction name="menu_Edit"/>
+   <addaction name="menu_Help"/>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
+  <widget class="QToolBar" name="mainTool">
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Main Toolbar</string>
+   </property>
+   <property name="movable">
+    <bool>true</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::AllToolBarAreas</set>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionExportResult"/>
+   <addaction name="actionPrint"/>
+   <addaction name="actionPreference"/>
+   <addaction name="separator"/>
+   <addaction name="actionAbout"/>
+   <addaction name="actionHelpContent"/>
+   <addaction name="separator"/>
+   <addaction name="actionClose"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionExit">
+  <widget class="QDockWidget" name="example">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>436</width>
+     <height>72</height>
+    </size>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Examples</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="searchContent">
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>50</height>
+     </size>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="leftMargin">
+      <number>2</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>2</number>
+     </property>
+     <property name="bottomMargin">
+      <number>1</number>
+     </property>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="zoomTool">
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Zoom Toolbar</string>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::AllToolBarAreas</set>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionZoomIn"/>
+   <addaction name="actionZoomOut"/>
+   <addaction name="actionNormalSize"/>
+  </widget>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="../Media/icons.qrc">
+     <normaloff>:/img/close.png</normaloff>
+     <normalon>:/img/close.png</normalon>:/img/close.png</iconset>
+   </property>
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Close</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/about.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionPreference">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/pref.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Preference</string>
+   </property>
+  </action>
+  <action name="actionHelpContent">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/help.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Help Content</string>
+   </property>
+  </action>
+  <action name="actionExportResult">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Media/icons.qrc">
+     <normaloff>:/img/export.png</normaloff>:/img/export.png</iconset>
+   </property>
+   <property name="text">
+    <string>Content Export</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/print.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Print</string>
+   </property>
+  </action>
+  <action name="actionZoomIn">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/zoom+.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+  </action>
+  <action name="actionZoomOut">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/zoom-.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+  </action>
+  <action name="actionNormalSize">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/zoom1.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Normal Size</string>
+   </property>
+  </action>
+  <action name="actionHide">
+   <property name="icon">
+    <iconset>
+     <normalon>:/img/hide.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Hide</string>
+   </property>
+  </action>
+  <action name="actionContactUs">
+   <property name="icon">
+    <iconset resource="../Media/icons.qrc">
+     <normaloff>:/img/mail.png</normaloff>:/img/mail.png</iconset>
+   </property>
+   <property name="text">
+    <string>Contact us</string>
+   </property>
+  </action>
+  <action name="actionHomePage">
+   <property name="icon">
+    <iconset resource="../Media/icons.qrc">
+     <normaloff>:/img/home.png</normaloff>:/img/home.png</iconset>
+   </property>
+   <property name="text">
+    <string>Homepage</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="../Media/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
