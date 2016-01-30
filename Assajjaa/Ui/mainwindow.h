@@ -22,12 +22,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef JPCONJMAIN_H
-#define JPCONJMAIN_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include "about.h"
 #include "conjframe.h"
-#include "Conj/edict2.h"
 #include "UiHelper/export.h"
 #include "jpconjhelp.h"
 #include "UiHelper/jpconjtray.h"
@@ -35,9 +34,6 @@
 #include "UiHelper/msg.h"
 #include "preference.h"
 #include "UiHelper/style.h"
-
-#include "typeDefs.h"
-#include "jpconj.h"
 
 #include <QApplication>
 #include <QDebug>
@@ -56,19 +52,19 @@
 
 
 namespace Ui {
-class jpconjmain;
+class MainWindow;
 }
 
-class jpconjmain : public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit jpconjmain(QWidget *parent = 0);
-    ~jpconjmain();
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
 
 private:
-    Ui::jpconjmain *ui;
+    Ui::MainWindow *ui;
     About     *winAbout;
     Preference *winPref;
     FuncFrame *workfrm;
@@ -118,4 +114,4 @@ private slots:
     void on_actionHomePage_triggered();
 };
 
-#endif // JPCONJMAIN_H
+#endif //

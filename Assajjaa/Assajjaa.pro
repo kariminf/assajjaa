@@ -4,13 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
-
+QT       += core gui sql webkit network
+CONFIG   += help
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Assajjaa
 TEMPLATE = app
-VERSION = 0.0.1
+VERSION = 0.1.0 #test version
 
 DEFINES += arbDbPath=\\\"./DB/arwords.db\\\" #/usr/share/assajjaa/DB
 DEFINES += LingPath=\\\"./Ling/\\\" #/usr/share/assajjaa/DB
@@ -30,6 +30,11 @@ FORMS    += Ui/mainwindow.ui
 TRANSLATIONS    +=  Media/i18n/ar.ts\
                     Media/i18n/ja.ts\
                     Media/i18n/fr.ts
+
+RESOURCES += \
+#    Media/about.qrc \
+    Media/icons.qrc \
+#    Media/output.qrc
 
 #Used when packaging only
 #DESTDIR = ../bin/release

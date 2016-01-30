@@ -24,7 +24,6 @@
 #ifndef MSG_H
 #define MSG_H
 
-#include "typeDefs.h"
 
 #include <QApplication>
 #include <QHash>

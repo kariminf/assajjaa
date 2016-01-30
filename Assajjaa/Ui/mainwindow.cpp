@@ -23,8 +23,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "jpconjmain.h"
-#include "ui_jpconjmain.h"
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 
 /*!
  * \class jpconjmain
@@ -36,13 +36,10 @@
  *                    PUBLIC
  *******************************************************/
 
-/*!
- * \brief jpconjmain::jpconjmain The constructor of the main window
- * \param parent
- */
-jpconjmain::jpconjmain(QWidget *parent) :
+
+MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::jpconjmain)
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     doInit();
@@ -50,10 +47,7 @@ jpconjmain::jpconjmain(QWidget *parent) :
 
 
 
-/*!
- * \brief jpconjmain::~jpconjmain The destructor of the main window
- */
-jpconjmain::~jpconjmain()
+MainWindow::~MainWindow()
 {
     delete ui;
 }
@@ -70,7 +64,7 @@ jpconjmain::~jpconjmain()
  * This function sets the language and direction of the main window.
  * You can call it in the constructor of this window.
  */
-void jpconjmain::doInit()
+void MainWindow::doInit()
 {
 
     workfrm = new ConjFrame(this);
@@ -114,7 +108,7 @@ void jpconjmain::doInit()
 /*!
  * \brief jpconjmain::openAbout This function is used to call "about" dialog box.
  */
-void jpconjmain::openAbout()
+void MainWindow::openAbout()
 {
     winAbout = new About(this);
     winAbout->setLayoutDirection(this->layoutDirection());
@@ -128,7 +122,7 @@ void jpconjmain::openAbout()
 /*!
  * \brief jpconjmain::openPref This function is used to call "preferences" dialog box.
  */
-void jpconjmain::openPref()
+void MainWindow::openPref()
 {
     winPref = new Preference(this);
     winPref->setLayoutDirection(this->layoutDirection());
@@ -143,7 +137,7 @@ void jpconjmain::openPref()
 /*!
  * \brief jpconjmain::doConj Used to export the result content as pdf, odt, etc.
  */
-void jpconjmain::doExport()
+void MainWindow::doExport()
 {
 /*
     QHash<QString, QString> extensions = Msg::getExportExtensions();
@@ -203,7 +197,7 @@ void jpconjmain::doExport()
 
 
 
-void jpconjmain::doPrint()
+void MainWindow::doPrint()
 {
     /*QPrinter printer;
 
@@ -219,7 +213,7 @@ void jpconjmain::doPrint()
 
 
 
-void jpconjmain::openHelp()
+void MainWindow::openHelp()
 {
     if(!jpconjhelp::exists()){
         jpconjhelp* helpWindow = new jpconjhelp(this);
@@ -229,7 +223,7 @@ void jpconjmain::openHelp()
 
 
 
-void jpconjmain::zoom(signed char sign)
+void MainWindow::zoom(signed char sign)
 {
     workfrm->zoom(sign);
 
@@ -243,7 +237,7 @@ void jpconjmain::zoom(signed char sign)
  * \param webView The QWebView we want to set the content CSS.
  * \param nameCSS The name of the CSS located in <dataFolder>/styles/ with the extension ".css"
  */
-void jpconjmain::setCSS(QWebView * webView, QString nameCSS)
+void MainWindow::setCSS(QWebView * webView, QString nameCSS)
 {
     QString cssfile = "file:" + QDir(QString(dataFolder)).absolutePath() + "/styles/" + nameCSS;
     QWebSettings * settings = webView->settings();
@@ -255,7 +249,7 @@ void jpconjmain::setCSS(QWebView * webView, QString nameCSS)
 /*!
  * \brief jpconjmain::setHTMLDirection Set the direction of the webView body.
  */
-void jpconjmain::setHTMLTranslation(bool rtl)
+void MainWindow::setHTMLTranslation(bool rtl)
 {
 
     if (!languageChanged)
@@ -268,7 +262,7 @@ void jpconjmain::setHTMLTranslation(bool rtl)
 
 
 
-void jpconjmain::createTryIcon()
+void MainWindow::createTryIcon()
 {
     //System tray Icon
     QAction *actionHelpContent = ui->actionHelpContent;
@@ -287,7 +281,7 @@ void jpconjmain::createTryIcon()
  * \brief jpconjmain::changeEvent The event treated here is the change of language.
  * \param event
  */
-void jpconjmain::changeEvent(QEvent* event)
+void MainWindow::changeEvent(QEvent* event)
 {
     if (event->type() == QEvent::LanguageChange)
     {
@@ -303,7 +297,7 @@ void jpconjmain::changeEvent(QEvent* event)
 }
 
 
-void jpconjmain::closeEvent(QCloseEvent *event)
+void MainWindow::closeEvent(QCloseEvent *event)
 {
     //trayIcon->hideMain();
     createTryIcon();
@@ -316,66 +310,66 @@ void jpconjmain::closeEvent(QCloseEvent *event)
  *                   PRIVATE SLOTS
  *******************************************************/
 
-void jpconjmain::changeStyle(QString styleID)
+void MainWindow::changeStyle(QString styleID)
 {
     stylesheet = styleID + ".css";
     workfrm->changeStyle(styleID);
 }
 
-void jpconjmain::on_actionClose_triggered()
+void MainWindow::on_actionClose_triggered()
 {
     qApp->quit();
 }
 
 
-void jpconjmain::on_actionAbout_triggered()
+void MainWindow::on_actionAbout_triggered()
 {
     openAbout();
 }
 
-void jpconjmain::on_actionPreference_triggered()
+void MainWindow::on_actionPreference_triggered()
 {
     openPref();
 }
 
-void jpconjmain::on_actionHelpContent_triggered()
+void MainWindow::on_actionHelpContent_triggered()
 {
     openHelp();
 }
 
 
 
-void jpconjmain::on_actionExportResult_triggered()
+void MainWindow::on_actionExportResult_triggered()
 {
     //doExport();
 }
 
-void jpconjmain::on_actionPrint_triggered()
+void MainWindow::on_actionPrint_triggered()
 {
     //doPrint();
 }
 
-void jpconjmain::on_actionZoomIn_triggered()
+void MainWindow::on_actionZoomIn_triggered()
 {
     zoom(1);
 }
 
-void jpconjmain::on_actionZoomOut_triggered()
+void MainWindow::on_actionZoomOut_triggered()
 {
     zoom(-1);
 }
 
-void jpconjmain::on_actionNormalSize_triggered()
+void MainWindow::on_actionNormalSize_triggered()
 {
     zoom(0);
 }
 
-void jpconjmain::on_actionHide_triggered()
+void MainWindow::on_actionHide_triggered()
 {
     createTryIcon();
 }
 
-void jpconjmain::on_actionContactUs_triggered()
+void MainWindow::on_actionContactUs_triggered()
 {
     QDesktopServices::openUrl(QUrl("mailto:dzcoding@googlegroups.com"));
 }
