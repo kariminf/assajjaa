@@ -44,7 +44,9 @@ void SrchFrame::initExporter()
 }
 
 void SrchFrame::initExporter(Export exporter)
-{/*
+{
+
+    /*
     exporter.setRTL(rtl);
     exporter.addContent("<p><h1>" + currentVerb + "</h1></p><hr>\n");
     exporter.addContent("<p><h3>" + ui->verbType->text() + "</h3></p>\n");
@@ -108,27 +110,6 @@ void SrchFrame::doSearch()
     }*/
 
     //ui->res->addItems(result);
-}
-
-
-/*!
- * \brief jpconjmain::readHtmlFile Reads an HTML file and return a QString
- * \param URL URL of the HTML file, we want to read.
- * \return A QString which is the content of this HTML file.
- */
-QString SrchFrame::readHtmlFile(QString URL)
-{
-    QString result="<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" /><body>";
-    QFile HtmlFile(URL);
-
-    if (HtmlFile.open(QIODevice::ReadOnly | QIODevice::Text)){
-        QTextStream htmlStream(&HtmlFile);
-        result = htmlStream.readAll();
-    }
-
-    result += "</body>";
-
-    return result;
 }
 
 

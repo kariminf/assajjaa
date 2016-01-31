@@ -54,7 +54,6 @@ private:
     void initBeginingFields();
     void doSearch();
 
-    QString readHtmlFile(QString URL);
 };
 
 #endif // SRCHFRAME_H

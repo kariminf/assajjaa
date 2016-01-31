@@ -30,7 +30,8 @@ SOURCES +=  main.cpp\
             UiHelper/style.cpp \
             UiHelper/funcframe.cpp \
             Data/requestor.cpp \
-            Data/transformer.cpp
+            Data/transformer.cpp \
+    Data/htmluncher.cpp
 
 
 
@@ -48,7 +49,8 @@ HEADERS  += UiHelper/msg.h \
             UiHelper/style.h \
             UiHelper/funcframe.h \
             Data/requestor.h \
-            Data/transformer.h
+            Data/transformer.h \
+    Data/htmluncher.h
 
 FORMS    += Ui/mainwindow.ui \
             Ui/about.ui \
@@ -63,7 +65,7 @@ TRANSLATIONS    +=  Media/i18n/ar.ts\
 RESOURCES += \
     Media/about.qrc \
     Media/icons.qrc \
-#    Media/output.qrc
+    Media/output.qrc
 
 #Used when packaging only
 #DESTDIR = ../bin/release
