@@ -8,11 +8,13 @@
 class HTMLuncher
 {
 public:
-    HTMLuncher(QString lang);
+    HTMLuncher();
     QString readHtmlFile(QString URL);
     void addWord(QString word);
     void finalize();
     void clear();
+    void setLang(QString lang);
+    QString getHTML();
 
 private:
     QString content;

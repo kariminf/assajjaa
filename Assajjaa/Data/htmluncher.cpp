@@ -1,13 +1,22 @@
 #include "htmluncher.h"
 
-HTMLuncher::HTMLuncher(QString lang)
+HTMLuncher::HTMLuncher()
 {
-    this->lang = lang;
     clear();
     loadFoundWord();
+    loadSearchEngines();
+    this->lang = "en";
 
 }
 
+void HTMLuncher::setLang(QString lang){
+    this->lang = lang;
+}
+
+QString HTMLuncher::getHTML()
+{
+    return content;
+}
 
 
 /*!
@@ -30,11 +39,13 @@ QString HTMLuncher::readHtmlFile(QString URL)
 
 void HTMLuncher::addWord(QString word)
 {
-    QString linksHTML = searchEngines.replace("@word", word);
-    linksHTML = linksHTML.replace("@lang", lang);
+    QString linksHTML = searchEngines;
+    linksHTML.replace("@word", word);
+    linksHTML.replace("@lang", lang);
 
-    QString wordHTML = foundWordHTML.replace("@word", word);
-    wordHTML = wordHTML.replace("@links", linksHTML);
+    QString wordHTML = foundWordHTML;
+    wordHTML.replace("@word", word);
+    wordHTML.replace("@links", linksHTML);
 
     content += wordHTML + "\n";
 }

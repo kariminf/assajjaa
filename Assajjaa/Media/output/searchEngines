@@ -1,3 +1,5 @@
 <a href="https://ar.wiktionary.org/w/index.php?search=@word">wiktionary</a>,
-<a href="http://www.almaany.com/_lang/dict/ar-@lang/@word/">Almaany</a>,
-<a href="https://translate.google.com/#ar/@lang/@word">Google Translate</a>
+<a href="http://www.almaany.com/@lang/dict/ar-@lang/@word/">Almaany</a>,
+<a href="https://translate.google.com/#ar/@lang/@word">Google Translate</a>,
+<a href="https://www.google.com/search?q=@word">Google Search</a>,
+<a href="https://tatoeba.org/eng/sentences/search?query=@word&from=ara&to=und">tatoeba</a>

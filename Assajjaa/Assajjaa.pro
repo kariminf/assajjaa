@@ -5,8 +5,9 @@
 #-------------------------------------------------
 
 QT       += core gui sql webkit network
+QT       += webkitwidgets
 CONFIG   += help
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets webkitwidgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Assajjaa
 TEMPLATE = app
 VERSION = 0.0.2 #dev version

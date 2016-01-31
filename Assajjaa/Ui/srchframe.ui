@@ -113,7 +113,7 @@
        </property>
        <item>
         <property name="text">
-         <string/>
+         <string notr="true"/>
         </property>
        </item>
       </widget>

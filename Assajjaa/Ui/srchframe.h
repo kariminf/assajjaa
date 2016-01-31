@@ -6,8 +6,10 @@
 #include "UiHelper/funcframe.h"
 #include "Ui/preference.h"
 #include "Data/requestor.h"
+#include "Data/htmluncher.h"
 #include <QWebElement>
 #include <QWebFrame>
+#include <QDesktopServices>
 
 
 namespace Ui {
@@ -42,9 +44,12 @@ private slots:
 
     void on_search_clicked();
 
+    void linkClickedSlot(QUrl url);
+
 private:
     Ui::SrchFrame *ui;
     Requestor *rq;
+    HTMLuncher *html;
 
     //bool languageChanged;
     QString currentVerb;

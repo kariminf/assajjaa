@@ -8,6 +8,8 @@ SrchFrame::SrchFrame(QWidget *parent) :
     initialize();
     rq = new Requestor();
     rq->connect();
+    html = new HTMLuncher();
+    html->setLang(Language::getCurrentLanguage());
 }
 
 SrchFrame::~SrchFrame()
@@ -28,7 +30,9 @@ void SrchFrame::initUI()
     //Set the style od webkit page to transparent
     ui->srchPage->page()->setPalette(palette);
     ui->srchPage->setAttribute(Qt::WA_OpaquePaintEvent, false);
-
+    ui->srchPage->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
+    connect( ui->srchPage, SIGNAL( linkClicked( QUrl ) ),
+                      this, SLOT( linkClickedSlot( QUrl ) ) );
     //init the search components
     initBeginingFields();
     initRhymeFields();
@@ -86,6 +90,8 @@ void SrchFrame::doSearch()
 {
     rq->clearRequest();
 
+    html->clear();
+
     QString qafiya = ui->rhyme->text();
     if (qafiya.length() < 1)
         return;
@@ -105,11 +111,14 @@ void SrchFrame::doSearch()
     QStringList result = rq->getResult();
 
     qDebug() << result.size();
-    /*foreach (QString word, result){
+    foreach (QString word, result){
+        qDebug() << word;
+        html->addWord(word);
+    }
 
-    }*/
-
-    //ui->res->addItems(result);
+    html->finalize();
+    ui->srchPage->setHtml(html->getHTML());
+    qDebug() << html->getHTML();
 }
 
 
@@ -119,7 +128,7 @@ void SrchFrame::refreshLanguage(bool rtl)
 
 
     this->rtl = rtl;
-
+    html->setLang(Language::getCurrentLanguage());
     ui->retranslateUi(this);
 
 }
@@ -242,4 +251,9 @@ void SrchFrame::on_beginMethod_currentIndexChanged(int index)
 void SrchFrame::on_search_clicked()
 {
     doSearch();
+}
+
+void SrchFrame::linkClickedSlot(QUrl url)
+{
+    QDesktopServices::openUrl(url);
 }
