@@ -5,6 +5,7 @@
 #include "UiHelper/msg.h"
 #include "UiHelper/funcframe.h"
 #include "Ui/preference.h"
+#include "Data/requestor.h"
 #include <QWebElement>
 #include <QWebFrame>
 
@@ -22,7 +23,6 @@ public:
     ~SrchFrame();
 
     void initExporter(Export exporter);
-    void doSearch();
     virtual void zoom(signed char sign);
     virtual void refreshLanguage(bool rtl);
     virtual void changeStyle(QString styleID);
@@ -33,18 +33,26 @@ protected:
     virtual void initExporter();
     
 private slots:
-    void on_conjugateButton_clicked();
-    void on_inputConjVerb_returnPressed();
+    void on_rhymeMethod_currentIndexChanged(int index);
+    void on_rhymeChooser_currentIndexChanged(const QString &text);
+
+    void on_tempMethod_currentIndexChanged(int index);
+
+    void on_beginMethod_currentIndexChanged(int index);
+
+    void on_search_clicked();
 
 private:
     Ui::SrchFrame *ui;
-
+    Requestor *rq;
 
     //bool languageChanged;
     QString currentVerb;
 
-    //void basicConjugation(QString verb, EdictType type);
-    //void complexConjugation(QString verb, EdictType type);
+    void initWaznFields();
+    void initRhymeFields();
+    void initBeginingFields();
+    void doSearch();
 
     QString readHtmlFile(QString URL);
 };

@@ -99,7 +99,7 @@
       <widget class="QComboBox" name="rhymeChooser">
        <property name="minimumSize">
         <size>
-         <width>150</width>
+         <width>180</width>
          <height>30</height>
         </size>
        </property>
@@ -108,6 +108,14 @@
          <pointsize>12</pointsize>
         </font>
        </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <item>
+        <property name="text">
+         <string/>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
@@ -159,7 +167,7 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>150</width>
+         <width>180</width>
          <height>30</height>
         </size>
        </property>
@@ -167,6 +175,9 @@
         <font>
          <pointsize>12</pointsize>
         </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
        </property>
       </widget>
      </item>
@@ -286,7 +297,7 @@
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="srchRes">
+     <widget class="QWidget" name="srchTab">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -296,12 +307,27 @@
       <attribute name="title">
        <string>Found words</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_2"/>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QWebView" name="srchPage" native="true">
+         <property name="accessibleName">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>qwebview.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
