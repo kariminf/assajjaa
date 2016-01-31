@@ -226,6 +226,7 @@ QString SrchFrame::readHtmlFile(QString URL)
 void SrchFrame::refreshLanguage(bool rtl)
 {
 
+    /*
     this->rtl = rtl;
 
     ui->retranslateUi(this);
@@ -243,6 +244,7 @@ void SrchFrame::refreshLanguage(bool rtl)
     //it is better for standard conjugation to stay ltr
     ui->basicConj->page()->mainFrame()->evaluateJavaScript(jsScript);
     ui->complexConj->page()->mainFrame()->evaluateJavaScript(jsScript);
+    */
     //qDebug()<< jsScript;
 
     //Retranslate strings
@@ -329,6 +331,7 @@ void SrchFrame::refreshLanguage(bool rtl)
 
 void SrchFrame::zoom(signed char sign)
 {
+    /*
     if (sign < 0){
         ui->standardConj->setTextSizeMultiplier(qMax(0.5, ui->standardConj->textSizeMultiplier() - 1.0 / 10.0));
         ui->basicConj->setTextSizeMultiplier(qMax(0.5, ui->basicConj->textSizeMultiplier() - 1.0 / 10.0));
@@ -348,16 +351,18 @@ void SrchFrame::zoom(signed char sign)
     ui->standardConj->setTextSizeMultiplier(1.0);
     ui->basicConj->setTextSizeMultiplier(1.0);
     ui->complexConj->setTextSizeMultiplier(1.0);
+    */
 }
 
 
 void SrchFrame::changeStyle(QString styleID)
 {
+    /*
     stylesheet = styleID + ".css";
     //qDebug() << "style changed" << styleID;
     setCSS(ui->basicConj, stylesheet);
     setCSS(ui->standardConj, stylesheet);
-    setCSS(ui->complexConj, stylesheet);
+    setCSS(ui->complexConj, stylesheet);*/
 }
 
 void SrchFrame::on_conjugateButton_clicked()

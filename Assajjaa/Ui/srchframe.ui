@@ -21,7 +21,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="rhymeLayout">
      <property name="spacing">
       <number>5</number>
      </property>
@@ -41,7 +41,32 @@
       <number>1</number>
      </property>
      <item>
-      <widget class="QLineEdit" name="inputConjVerb">
+      <widget class="QComboBox" name="rhymeMethod">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <item>
+        <property name="text">
+         <string>Input the rhyme</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Choose the rhyme</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="rhyme">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -53,33 +78,40 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>300</width>
+         <width>180</width>
          <height>30</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="conjugateButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
+      <widget class="QComboBox" name="rhymeChooser">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>150</width>
          <height>30</height>
         </size>
        </property>
-       <property name="text">
-        <string>Conjugate</string>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer">
+      <spacer name="rhymeSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -94,24 +126,167 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="verbType">
+    <layout class="QHBoxLayout" name="templateLayout">
+     <item>
+      <widget class="QComboBox" name="tempMethod">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <item>
+        <property name="text">
+         <string>No templates</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Choose the template</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="tempChooser">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="temSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QComboBox" name="beginMethod">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <item>
+        <property name="text">
+         <string>No begining</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Input the begining</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="begining">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="beginSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="search">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="resTab">
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>30</height>
+       <height>50</height>
       </size>
      </property>
-     <property name="readOnly">
-      <bool>true</bool>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
      </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QTabWidget" name="ConjgTab">
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="standardConjTab">
+     <widget class="QWidget" name="srchRes">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -119,88 +294,14 @@
        </sizepolicy>
       </property>
       <attribute name="title">
-       <string>Standard Conjugation</string>
+       <string>Found words</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QWebView" name="standardConj" native="true">
-         <property name="accessibleName">
-          <string notr="true"/>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="basicConjTab">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <attribute name="title">
-       <string>Basic Conjugation</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
-        <widget class="QWebView" name="basicConj" native="true">
-         <property name="accessibleName">
-          <string notr="true"/>
-         </property>
-         <property name="url" stdset="0">
-          <url>
-           <string>about:blank</string>
-          </url>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="complexConjTab">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>616</width>
-        <height>208</height>
-       </size>
-      </property>
-      <attribute name="title">
-       <string>Complex Conjugation</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetMaximumSize</enum>
-       </property>
-       <item row="0" column="0">
-        <widget class="QWebView" name="complexConj" native="true">
-         <property name="accessibleName">
-          <string notr="true"/>
-         </property>
-         <property name="url" stdset="0">
-          <url>
-           <string>about:blank</string>
-          </url>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QGridLayout" name="gridLayout_2"/>
      </widget>
     </widget>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
