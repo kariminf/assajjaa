@@ -23,7 +23,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Assajjaa: Arabic words search</string>
+   <string>Assajjaa: Arabic rhyme search</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../Media/icons.qrc">
