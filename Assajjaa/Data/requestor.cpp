@@ -62,6 +62,19 @@ void Requestor::addQafiya(QString qafiya)
     more = true;
 }
 
+void Requestor::addBegining(QString begin)
+{
+    if (more){
+        request += "AND ";
+    } else {
+        request += "WHERE ";
+    }
+
+    int len = begin.length();
+    request += "substr(word, 1, " + QString::number(len) + ") = '" + begin + "'\n";
+    more = true;
+}
+
 QString Requestor::getRequest()
 {
     return request;

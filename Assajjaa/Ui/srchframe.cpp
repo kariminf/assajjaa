@@ -92,7 +92,7 @@ void SrchFrame::doSearch()
 
     html->clear();
 
-    QString qafiya = ui->rhyme->text();
+    QString qafiya = ui->rhyme->text().trimmed();
     if (qafiya.length() < 1)
         return;
 
@@ -108,25 +108,36 @@ void SrchFrame::doSearch()
         break;
     }
 
+
+    switch (ui->beginMethod->currentIndex()) {
+    case 1:{
+        QString begin = ui->begining->text().trimmed();
+        if (begin.length() < 1)
+            break;
+        rq->addBegining(begin);
+        break;
+    }
+    default:
+        break;
+    }
+
     QStringList result = rq->getResult();
 
     qDebug() << result.size();
     foreach (QString word, result){
-        qDebug() << word;
+        //qDebug() << word;
         html->addWord(word);
     }
 
     html->finalize();
     ui->srchPage->setHtml(html->getHTML());
-    qDebug() << html->getHTML();
+    //qDebug() << html->getHTML();
 }
 
 
 
 void SrchFrame::refreshLanguage(bool rtl)
 {
-
-
     this->rtl = rtl;
     html->setLang(Language::getCurrentLanguage());
     ui->retranslateUi(this);

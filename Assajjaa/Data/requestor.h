@@ -16,6 +16,7 @@ public:
     void clearRequest();
     void addWazn(QString wazn);
     void addQafiya(QString qafiya);
+    void addBegining(QString begin);
     QString getRequest();
     QStringList getResult();
 
