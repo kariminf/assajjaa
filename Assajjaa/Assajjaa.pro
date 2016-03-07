@@ -71,7 +71,7 @@ RESOURCES += \
 #Used when packaging only
 #DESTDIR = ../bin/release
 
-win32:RC_FILE = jpconj.rc
+win32:RC_FILE = assajjaa.rc
 
 unix {
 system(mkdir ../bin)

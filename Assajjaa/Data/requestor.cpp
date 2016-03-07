@@ -23,8 +23,12 @@ void Requestor::connect()
 void Requestor::desconnect()
 {
     if (QSqlDatabase::contains("arbdb"))
+    {
+        if (arbdb.isOpen())
         {
-            QSqlDatabase::removeDatabase("arbdb");
+            arbdb.close();
+        }
+        QSqlDatabase::removeDatabase("arbdb");
     }
 }
 
