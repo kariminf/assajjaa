@@ -10,7 +10,7 @@ CONFIG   += help
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Assajjaa
 TEMPLATE = app
-VERSION = 0.0.2 #dev version
+VERSION = 0.1.0 #test version
 
 DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += arbDbPath=\\\"./DB/arwords.db\\\" #/usr/share/assajjaa/DB
