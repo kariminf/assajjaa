@@ -25,9 +25,8 @@ void SrchFrame::initUI()
     QPalette palette;
 
     //hasContent = false;
-    palette.setBrush(QPalette::Base, Qt::transparent);
-
     //Set the style od webkit page to transparent
+    palette.setBrush(QPalette::Base, Qt::transparent);
     ui->srchPage->page()->setPalette(palette);
     ui->srchPage->setAttribute(Qt::WA_OpaquePaintEvent, false);
     ui->srchPage->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);

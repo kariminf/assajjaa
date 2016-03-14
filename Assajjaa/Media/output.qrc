@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>output/foundWord</file>
-		<file>output/searchEngines</file>
+        <file>output/searchEngines</file>
     </qresource>
 </RCC>

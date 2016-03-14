@@ -64,7 +64,8 @@ void HTMLuncher::clear()
     content = "<!doctype html>\n";
     content += "<html>\n";
     content += "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />";
-    content += "<body>\n";
+    content += "<body style=\"font-size:16pt;\">\n";
+    content += "<body style=\"font-size:16pt;\">\n";
     content += "<table id=\"_SrchTable\">\n";
 }
 
@@ -77,3 +78,4 @@ void HTMLuncher::loadSearchEngines()
 {
     searchEngines = readHtmlFile(":/output/searchEngines");
 }
+
