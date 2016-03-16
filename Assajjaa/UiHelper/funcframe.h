@@ -13,6 +13,7 @@ public:
     //~FuncFrame();
 
     virtual void changeStyle(QString styleID) = 0;
+     virtual void changeFont(QString font, QString arfont, int size) = 0;
     virtual void zoom(signed char sign) = 0;
     virtual void refreshLanguage(bool rtl) = 0;
 

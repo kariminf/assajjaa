@@ -83,10 +83,11 @@ void MainWindow::doInit()
     //ui->showt->setLayoutDirection(Qt::LeftToRight);
 
     //changeStyle(Style::getCurrentStyle());
-    Style::addReceiver(this, SLOT(changeStyle(QString)));
+    Style::addStyleReceiver(this, SLOT(changeStyle(QString)));
     Style::loadStyles();
-    //connect(style, SIGNAL(styleChanged(QString)), this, SLOT(changeStyle(QString)));
 
+    Style::addFontReceiver(this, SLOT(changeFont(QString,QString,int)));
+    Style::setFont();
 
     //tray Icon
     trayIconSys = new JpconjTray(this);
@@ -313,6 +314,11 @@ void MainWindow::changeStyle(QString styleID)
 {
     stylesheet = styleID + ".css";
     workfrm->changeStyle(styleID);
+}
+
+void MainWindow::changeFont(QString font, QString arfont, int size)
+{
+    workfrm->changeFont(font, arfont, size);
 }
 
 void MainWindow::on_actionClose_triggered()

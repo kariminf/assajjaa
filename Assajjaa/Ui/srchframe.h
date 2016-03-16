@@ -28,6 +28,7 @@ public:
     virtual void zoom(signed char sign);
     virtual void refreshLanguage(bool rtl);
     virtual void changeStyle(QString styleID);
+    virtual void changeFont(QString font, QString arfont, int size);
 
 
 protected:

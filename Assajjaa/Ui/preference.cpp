@@ -84,16 +84,6 @@ void Preference::doInit()
 
     ui->lang->setCurrentIndex(index);
 
-    ui->standard_check->setText(qApp->translate("jpconjmain", "Standard Conjugation"));
-    ui->standard_check->setChecked(Export::getConfigExportPart("standard"));
-    ui->basic_check->setText(qApp->translate("jpconjmain", "Basic Conjugation"));
-    ui->basic_check->setChecked(Export::getConfigExportPart("basic"));
-    ui->complex_check->setText(qApp->translate("jpconjmain", "Complex Conjugation"));
-    ui->complex_check->setChecked(Export::getConfigExportPart("complex"));
-
-    ui->styleUse_check->setChecked(Export::getConfigExportPart("styled"));
-
-
     //------------------------
     QHash<QString, Styleinfo*> styleInfo = Style::getStyleInfo();
 
@@ -107,6 +97,16 @@ void Preference::doInit()
     QString currentStyleId = Style::getCurrentStyle();
     index = ui->style->findData(QVariant(currentStyleId));
     ui->style->setCurrentIndex(index);
+
+    QString currentFont = Style::getCurrentFont(false);
+    index = ui->sysfonts->findText(currentFont);
+    ui->sysfonts->setCurrentIndex(index);
+
+    currentFont = Style::getCurrentFont(true);
+    index = ui->arfonts->findText(currentFont);
+    ui->arfonts->setCurrentIndex(index);
+
+    ui->fontsize->setValue(Style::getCurrentFontSize());
 
 }
 
@@ -128,17 +128,32 @@ void Preference::doSave()
 
     //Export preferences
     QMap<QString, bool> exportParts;
+    /*
     exportParts.insert("standard", ui->standard_check->isChecked());
     exportParts.insert("basic", ui->basic_check->isChecked());
     exportParts.insert("complex", ui->complex_check->isChecked());
     exportParts.insert("styled", ui->styleUse_check->isChecked());
     Export::setConfigExportParts(exportParts);
-
+    */
     //style
     index = ui->style->currentIndex();
     QString styleID = ui->style->itemData(index).toString();
     Style::setConfigStyle(styleID);
     Style::setStyle();
+
+
+    //index = ui->sysfonts->currentIndex();
+    QString font = ui->sysfonts->currentFont().family();
+    //QString font = ui->sysfonts->itemData(index).toString();
+    Style::setConfigFont(font, false);
+    //index = ui->arfonts->currentIndex();
+    //font = ui->arfonts->itemData(index).toString();
+    font = ui->arfonts->currentFont().family();
+    Style::setConfigFont(font, true);
+    int size = ui->fontsize->value();
+    Style::setConfigFontSize(size);
+    Style::setFont();
+
 }
 
 

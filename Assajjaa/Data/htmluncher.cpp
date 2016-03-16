@@ -63,11 +63,16 @@ void HTMLuncher::clear()
 {
     content = "<!doctype html>\n";
     content += "<html>\n";
-    content += "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />";
-    content += "<body style=\"font-size:16pt;\">\n";
-    content += "<body style=\"font-size:16pt;\">\n";
+    content += "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n";
+    content += "<style>\n";
+    content += "*{font-family:" + Style::getCurrentFont(false) + ";";
+    content += "font-size:" + QString::number(Style::getCurrentFontSize()) + "pt;}";
+    content += ".word{font-family:" + Style::getCurrentFont(true) + ";}";
+    content += "\n</style>\n";
+    content += "<body>\n";
     content += "<table id=\"_SrchTable\">\n";
 }
+
 
 void HTMLuncher::loadFoundWord()
 {

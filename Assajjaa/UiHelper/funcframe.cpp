@@ -26,4 +26,5 @@ void FuncFrame::setCSS(QWebView * webView, QString nameCSS)
     QWebSettings * settings = webView->settings();
     settings->setUserStyleSheetUrl(QUrl(cssfile));
     */
+
 }

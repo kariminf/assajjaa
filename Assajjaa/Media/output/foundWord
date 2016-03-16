@@ -1,8 +1,8 @@
 ﻿    <tr>
-      <td class="word" id="_word">@word</td>
+      <td class="word">@word</td>
     </tr>
     <tr>
-      <td class="links" id="_links">@links</td>
+      <td class="links">@links</td>
     </tr>
     <tr>
       <td class="blank"></td>

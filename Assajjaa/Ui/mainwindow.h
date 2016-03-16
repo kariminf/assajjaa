@@ -98,6 +98,7 @@ protected:
 
 private slots:
     void changeStyle(QString styleID);
+    void changeFont(QString font, QString arfont, int size);
 
     void on_actionClose_triggered();
     void on_actionAbout_triggered();

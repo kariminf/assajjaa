@@ -5,6 +5,8 @@
 #include <qfile.h>
 #include <QTextStream>
 
+#include "UiHelper/style.h";
+
 class HTMLuncher
 {
 public:

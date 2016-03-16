@@ -170,6 +170,19 @@ void SrchFrame::changeStyle(QString styleID)
     setCSS(ui->srchPage, stylesheet);
 }
 
+void SrchFrame::changeFont(QString font, QString arfont, int size)
+{
+    QString style = "* {font-family:" + font;
+    style += "; font-size :" + QString::number(size) + "pt;}";
+    style += ".word {font-family:" + arfont + ";}";
+
+    QWebElement styleEl =
+    ui->srchPage->page()->mainFrame()->findFirstElement("style");
+    styleEl.setInnerXml(style);
+    qDebug() << ui->srchPage->page()->mainFrame()->toHtml();
+
+}
+
 
 void SrchFrame::initWaznFields()
 {
