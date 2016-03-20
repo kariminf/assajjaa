@@ -90,6 +90,7 @@ void SrchFrame::doSearch()
     rq->clearRequest();
 
     html->clear();
+    html->setLang(Language::getCurrentLanguage());
 
     QString qafiya = ui->rhyme->text().trimmed();
     if (qafiya.length() < 1)
@@ -187,7 +188,7 @@ void SrchFrame::changeFont(QString font, QString arfont, int size)
     QWebElement styleEl =
     ui->srchPage->page()->mainFrame()->findFirstElement("style");
     styleEl.setInnerXml(style);
-    qDebug() << ui->srchPage->page()->mainFrame()->toHtml();
+    //qDebug() << ui->srchPage->page()->mainFrame()->toHtml();
 
 }
 
