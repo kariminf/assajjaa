@@ -8,16 +8,17 @@ XPStyle on
 
 ; The name of the installer
 ;Name "Assajjaa"
+!define Version 0.2.0
 
 ; The file to write
-OutFile "Assajjaa-0.1.0beta.exe"
+OutFile "Assajjaa-0.2.0beta.exe"
 
 ; The default installation directory
 InstallDir "$PROGRAMFILES\Assajjaa"
 
 ; Registry key to check for directory (so if you install again, it will 
 ; overwrite the old one automatically)
-InstallDirRegKey HKLM "Software\Assajjaa" "Install_Dir"
+;InstallDirRegKey HKLM "Software\Assajjaa" "Install_Dir"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
@@ -64,7 +65,7 @@ Section "Assajjaa"
 	
 	; Write the installation path into the registry
 	WriteRegStr HKLM SOFTWARE\Assajjaa "Install_Dir" "$INSTDIR"
-	
+	WriteRegStr HKLM SOFTWARE\Assajjaa "Version" "${Version}"
 	; Write the uninstall keys for Windows
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Assajjaa" "DisplayName" "Assajjaa"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Assajjaa" "UninstallString" '"$INSTDIR\uninstall.exe"'
