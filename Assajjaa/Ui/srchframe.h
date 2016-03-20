@@ -21,7 +21,7 @@ class SrchFrame : public FuncFrame
     Q_OBJECT
     
 public:
-    explicit SrchFrame(QWidget *parent = 0);
+    explicit SrchFrame(QMainWindow *parent = 0);
     ~SrchFrame();
 
     void initExporter(Export exporter);

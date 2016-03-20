@@ -4,12 +4,14 @@
 #include <QFrame>
 #include <QWebView>
 #include <QDir>
+#include <QMainWindow>
+#include <QStatusBar>
 
 class FuncFrame: public QFrame
 {
 
 public:
-    explicit FuncFrame(QWidget *parent = 0);
+    explicit FuncFrame(QMainWindow *parent = 0);
     //~FuncFrame();
 
     virtual void changeStyle(QString styleID) = 0;
@@ -22,6 +24,7 @@ protected:
     bool rtl;
     bool hasContent;
     QString stylesheet;
+    QStatusBar * status;
 
     void initialize();
 

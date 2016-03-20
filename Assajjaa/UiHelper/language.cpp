@@ -138,7 +138,7 @@ void Language::loadTranslations()
         QString langFileName = langINIFile;
         langFileName.chop(4);
         QFile langFile (QString(transPath) + langFileName +".qm");
-        qDebug() << langFile.fileName();
+        //qDebug() << langFile.fileName();
         if (langFile.exists()){
             QSettings langSettings(QString(transPath) + langINIFile, QSettings::IniFormat);
             langSettings.setIniCodec("UTF-8");

@@ -1,7 +1,7 @@
 #include "srchframe.h"
 #include "ui_srchframe.h"
 
-SrchFrame::SrchFrame(QWidget *parent) :
+SrchFrame::SrchFrame(QMainWindow *parent) :
     FuncFrame(parent),
     ui(new Ui::SrchFrame)
 {
@@ -122,7 +122,15 @@ void SrchFrame::doSearch()
 
     QStringList result = rq->getResult();
 
-    qDebug() << result.size();
+    QString stat = tr("%1 results found for %2");
+
+    stat = stat.replace("%1", QString::number(result.size()));
+    stat = stat.replace("%2", qafiya);
+
+    if (status != NULL)
+        status->showMessage(stat);
+
+    //qDebug() << result.size();
     foreach (QString word, result){
         //qDebug() << word;
         html->addWord(word);

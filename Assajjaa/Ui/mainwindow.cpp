@@ -376,10 +376,10 @@ void MainWindow::on_actionHide_triggered()
 
 void MainWindow::on_actionContactUs_triggered()
 {
-    QDesktopServices::openUrl(QUrl("mailto:dzcoding@googlegroups.com"));
+    QDesktopServices::openUrl(QUrl("mailto:kariminfo0@gmail.com"));
 }
 
 void MainWindow::on_actionHomePage_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://japkatsuyou.sourceforge.net"));
+    QDesktopServices::openUrl(QUrl("http://assajjaa.sourceforge.net"));
 }

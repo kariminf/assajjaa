@@ -1,9 +1,10 @@
 #include "funcframe.h"
 
-FuncFrame::FuncFrame(QWidget *parent) :
+FuncFrame::FuncFrame(QMainWindow *parent) :
     QFrame(parent)
 {
     hasContent = false;
+    status = parent->statusBar();
 }
 
 void FuncFrame::initialize()

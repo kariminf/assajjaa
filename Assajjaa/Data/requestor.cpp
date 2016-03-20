@@ -12,7 +12,7 @@ void Requestor::connect()
     {
         arbdb =  QSqlDatabase::addDatabase("QSQLITE","arbdb");
         arbdb.setDatabaseName(QString(arbDbPath));
-        qDebug()<< arbdb.databaseName();
+        //qDebug()<< arbdb.databaseName();
     }
     else
     {
