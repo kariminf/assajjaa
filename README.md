@@ -1,8 +1,10 @@
 # Assajjaa
 
-[![Project](https://img.shields.io/badge/Project-Assajjaa-92000A.svg)](https://github.com/kariminf/Assajjaa/releases)
-[![Version](https://img.shields.io/badge/Version-0.2.0-92000A.svg)](https://github.com/kariminf/Assajjaa/releases)
-[![License](https://img.shields.io/badge/License-GPL--3.0-92000A.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![Project](https://img.shields.io/badge/Project-Assajjaa-F34B7D.svg)](https://github.com/kariminf/assajjaa/releases)
+[![License](https://img.shields.io/badge/License-GPL--3.0-F34B7D.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![GitHub release](https://img.shields.io/github/release/kariminf/assajjaa.svg)](https://github.com/kariminf/assajjaa/releases/latest)
+[![Travis](https://img.shields.io/travis/kariminf/assajjaa.svg)](https://travis-ci.org/kariminf/assajjaa)
+[![SourceForge](https://img.shields.io/sourceforge/dt/assajjaa.svg)](https://sourceforge.net/projects/assajjaa/)
 
 
 In Arabic (السّجّاع) which means the one who generates the rhyme.
@@ -12,18 +14,18 @@ This is a project to help poets to search and find words in Arabic language.
 
 ## Features
 
-* Using the begining and ending of words for research
-* Using pattern for research (In Arabic, each word can have a pattern)
+* Using the beginning and ending of words for search
+* Using pattern for search (In Arabic, each word can have a pattern)
 * Links to other websites
 
 ## Install
 
-Just check [release](https://github.com/kariminf/Assajjaa/releases) section.
-Currently, windows is the only system that has release.
-For linux,
+Just check [release](https://github.com/kariminf/assajjaa/releases/latest) section.
+Currently, Windows is the only system that has release.
+For Linux,
 * install Qt
 * Download the source
-* Download arwords.db.tar.gz from release section
+* Download [arwords.db.tar.gz]() from release section
 * Extract it in "Assajjaa/Media/DB/"
 * Open the project using Qt creator and compile
 
